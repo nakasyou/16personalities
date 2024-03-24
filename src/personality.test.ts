@@ -33,7 +33,7 @@ Deno.test('parsePersonalityLabel', () => {
       'ENFJ',
       {
         energy: 1,
-        mind: -1,
+        mind: 1,
         nature: -1,
         tactics: 1,
         identity: null

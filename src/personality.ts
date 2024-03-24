@@ -19,8 +19,8 @@ export interface Personality {
      */
     energy: number
     /**
-     * Sensing: plus
-     * N: minus
+     * N: plus
+     * Sensing: minus
      */
     mind: number
     /**
@@ -42,7 +42,7 @@ export interface Personality {
 }
 
 type EnergyChar = 'E' | 'I'
-type MindChar = 'S' | 'N'
+type MindChar = 'N' | 'S'
 type NatureChar = 'T' | 'F'
 type TacticsChar = 'J' | 'P'
 type IdentityChar = 'A' | 'T'
@@ -75,7 +75,7 @@ export const validPersonalityLabel = (
  */
 export const parsePersonalityLabel = (label: PersonalityLabel): Personality => {
   const energy = label[0] === 'E' ? 1 : -1
-  const mind = label[1] === 'S' ? 1 : -1
+  const mind = label[1] === 'N' ? 1 : -1
   const nature = label[2] === 'T' ? 1 : -1
   const tactics = label[3] === 'J' ? 1 : -1
   const identity = label[5] ? (label[5] === 'A' ? 1 : -1) : null
@@ -98,7 +98,7 @@ export const parsePersonalityLabel = (label: PersonalityLabel): Personality => {
  */
 export const createPersonalityLabel = (personality: Personality): PersonalityLabel => {
   const energy = personality.data.energy > 0 ? 'E' : 'I'
-  const mind = personality.data.mind > 0 ? 'S' : 'N'
+  const mind = personality.data.mind > 0 ? 'N' : 'S'
   const nature = personality.data.nature > 0 ? 'T' : 'F'
   const tactics = personality.data.tactics > 0 ? 'J' : 'P'
   const identity = personality.data.identity
